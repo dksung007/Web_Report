@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Log_FORD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kanban" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="20" />
+          <Property Name="Wire" Type="varchar" MaxLength="50" />
+          <Property Name="Mic" Type="varchar" MaxLength="50" />
+          <Property Name="LampFR1" Type="varchar" MaxLength="50" />
+          <Property Name="LampFR2" Type="varchar" MaxLength="50" />
+          <Property Name="LampRR" Type="varchar" MaxLength="50" />
+          <Property Name="Sunvisor_Driver" Type="varchar" MaxLength="50" />
+          <Property Name="Sunvisor_Passenger" Type="varchar" MaxLength="50" />
+          <Property Name="Remote" Type="varchar(max)" />
+          <Property Name="Date_Time" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="Log_P375">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kanban" Type="varchar" MaxLength="50" />
+          <Property Name="Label_PD" Type="varchar" MaxLength="10" />
+          <Property Name="Lamp_OHC" Type="varchar" MaxLength="50" />
+          <Property Name="Remote" Type="varchar(max)" />
+          <Property Name="Wire" Type="varchar" MaxLength="50" />
+          <Property Name="Date_Time" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Log_U375">
+          <Key>
+            <PropertyRef Name="Label_ID" />
+          </Key>
+          <Property Name="Label_ID" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="varchar" MaxLength="50" />
+          <Property Name="Kanban" Type="varchar" MaxLength="50" />
+          <Property Name="OHC" Type="varchar(max)" />
+          <Property Name="Map_Lamp" Type="varchar(max)" />
+          <Property Name="Dome_Lamp" Type="varchar(max)" />
+          <Property Name="Wire" Type="varchar" MaxLength="50" />
+          <Property Name="Antenna" Type="varchar" MaxLength="50" />
+          <Property Name="Remote" Type="varchar(max)" />
+          <Property Name="_date" Type="varchar" MaxLength="50" />
+          <Property Name="_shift" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_bom_ford1">
+          <Key>
+            <PropertyRef Name="bom_id" />
+          </Key>
+          <Property Name="bom_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="20" />
+          <Property Name="Wire" Type="varchar" MaxLength="50" />
+          <Property Name="Mic" Type="varchar" MaxLength="50" />
+          <Property Name="LAMPFR1" Type="varchar" MaxLength="50" />
+          <Property Name="LAMPFR2" Type="varchar" MaxLength="50" />
+          <Property Name="LAMPRR" Type="varchar" MaxLength="50" />
+          <Property Name="svr_driver" Type="varchar" MaxLength="50" />
+          <Property Name="svr_passenger" Type="varchar" MaxLength="50" />
+          <Property Name="Remote_code" Type="varchar" MaxLength="10" />
+          <Property Name="Last_Update" Type="varchar" MaxLength="50" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_bom_t6">
+          <Key>
+            <PropertyRef Name="part_id" />
+          </Key>
+          <Property Name="part_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="LAMP_OHC" Type="varchar" MaxLength="50" />
+          <Property Name="Remote" Type="varchar" MaxLength="50" />
+          <Property Name="Wire" Type="varchar" MaxLength="50" />
+          <Property Name="LAMP_OHC_2" Type="varchar" MaxLength="50" />
+          <Property Name="LAMP_OHC_3" Type="varchar" MaxLength="50" />
+          <Property Name="Last_UPDATE" Type="varchar" MaxLength="50" />
+          <Property Name="s_alert" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="50" />
+          <Property Name="barcode" Type="varchar" MaxLength="50" />
+          <Property Name="s_mod" Type="int" />
+          <Property Name="s_wire" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_bom_u375">
+          <Key>
+            <PropertyRef Name="bom_id" />
+          </Key>
+          <Property Name="bom_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="u_ohc" Type="varchar" MaxLength="50" />
+          <Property Name="u_map_lamp" Type="varchar" MaxLength="50" />
+          <Property Name="u_dome_lamp" Type="varchar" MaxLength="50" />
+          <Property Name="u_wire" Type="varchar" MaxLength="50" />
+          <Property Name="u_remote" Type="varchar" MaxLength="50" />
+          <Property Name="u_atana" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_cf_part">
+          <Key>
+            <PropertyRef Name="trm_cf" />
+            <PropertyRef Name="vin_cf" />
+            <PropertyRef Name="part_no_cf" />
+          </Key>
+          <Property Name="id_cf_part" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="date_cf" Type="varchar" MaxLength="50" />
+          <Property Name="supp_cf" Type="varchar" MaxLength="50" />
+          <Property Name="trm_cf" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="n_pn_cf" Type="varchar" MaxLength="50" />
+          <Property Name="vin_cf" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="part_no_cf" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="s_cf" Type="int" />
+          <Property Name="kb_no_cf" Type="varchar" MaxLength="50" />
+          <Property Name="tra_cf" Type="varchar" MaxLength="50" />
+          <Property Name="EcssDate" Type="varchar" MaxLength="50" />
+          <Property Name="s_bom" Type="int" />
+          <Property Name="dateTrans" Type="varchar" MaxLength="50" />
+          <Property Name="s_st" Type="int" />
+          <Property Name="s_rw" Type="int" />
+          <Property Name="id_st" Type="varchar" MaxLength="50" />
+          <Property Name="id_rw" Type="varchar" MaxLength="50" />
+          <Property Name="date_s" Type="varchar" MaxLength="50" />
+          <Property Name="s_chk" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_st_p375">
+          <Key>
+            <PropertyRef Name="ID_ST_P" />
+          </Key>
+          <Property Name="ID_ST_P" Type="int" Nullable="false" />
+          <Property Name="SEQ" Type="varchar" MaxLength="50" />
+          <Property Name="PN_F" Type="varchar" MaxLength="50" />
+          <Property Name="PN_N" Type="varchar" MaxLength="50" />
+          <Property Name="DT_CF" Type="varchar" MaxLength="50" />
+          <Property Name="DT_FG" Type="varchar" MaxLength="50" />
+          <Property Name="S_PD" Type="int" />
+          <Property Name="S_CF" Type="int" />
+          <Property Name="S_S" Type="int" />
+          <Property Name="Sequence" Type="varchar" MaxLength="50" />
+          <Property Name="Date_Sequence" Type="varchar" MaxLength="50" />
+          <Property Name="Label_ID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tb_st_part">
+          <Key>
+            <PropertyRef Name="id_st_part" />
+          </Key>
+          <Property Name="id_st_part" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_st" Type="varchar" MaxLength="50" />
+          <Property Name="trm_st" Type="varchar" MaxLength="50" />
+          <Property Name="n_pn_st" Type="varchar" MaxLength="50" />
+          <Property Name="f_pn_st" Type="varchar" MaxLength="50" />
+          <Property Name="s_st" Type="int" />
+          <Property Name="s_st_o" Type="int" Nullable="false" />
+          <Property Name="date_st_o" Type="varchar(max)" />
+          <Property Name="s_st_rw" Type="int" Nullable="false" />
+          <Property Name="id_st_rw" Type="varchar" MaxLength="50" />
+          <Property Name="s_st_chk" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="50" />
+          <Property Name="Label_ID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_st_u375">
+          <Key>
+            <PropertyRef Name="ID_ST_U" />
+          </Key>
+          <Property Name="ID_ST_U" Type="int" Nullable="false" />
+          <Property Name="SEQ" Type="varchar" MaxLength="50" />
+          <Property Name="PN_F" Type="varchar" MaxLength="50" />
+          <Property Name="PN_N" Type="varchar" MaxLength="50" />
+          <Property Name="DT_CF" Type="varchar" MaxLength="50" />
+          <Property Name="DT_FG" Type="varchar" MaxLength="50" />
+          <Property Name="S_PD" Type="int" />
+          <Property Name="S_CF" Type="int" />
+          <Property Name="S_S" Type="int" />
+          <Property Name="Sequence" Type="varchar" MaxLength="50" />
+          <Property Name="Date_Sequence" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DB_ModelStoreContainer">
+          <EntitySet Name="Log_FORD" EntityType="Self.Log_FORD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log_P375" EntityType="Self.Log_P375" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log_U375" EntityType="Self.Log_U375" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_bom_ford1" EntityType="Self.tb_bom_ford1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_bom_t6" EntityType="Self.tb_bom_t6" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_bom_u375" EntityType="Self.tb_bom_u375" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_cf_part" EntityType="Self.tb_cf_part" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_st_p375" EntityType="Self.tb_st_p375" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_st_part" EntityType="Self.tb_st_part" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_st_u375" EntityType="Self.tb_st_u375" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Log_FORD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kanban" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Wire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LampFR1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LampFR2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LampRR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sunvisor_Driver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sunvisor_Passenger" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Log_P375">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kanban" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Label_PD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Lamp_OHC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Wire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Log_U375">
+          <Key>
+            <PropertyRef Name="Label_ID" />
+          </Key>
+          <Property Name="Label_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sequence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kanban" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OHC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Map_Lamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Dome_Lamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Wire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Antenna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_bom_ford1">
+          <Key>
+            <PropertyRef Name="bom_id" />
+          </Key>
+          <Property Name="bom_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Wire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAMPFR1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAMPFR2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAMPRR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="svr_driver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="svr_passenger" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remote_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Update" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_bom_t6">
+          <Key>
+            <PropertyRef Name="part_id" />
+          </Key>
+          <Property Name="part_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAMP_OHC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Wire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAMP_OHC_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAMP_OHC_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_UPDATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_alert" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_mod" Type="Int32" />
+          <Property Name="s_wire" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_bom_u375">
+          <Key>
+            <PropertyRef Name="bom_id" />
+          </Key>
+          <Property Name="bom_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="u_ohc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_map_lamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_dome_lamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_wire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_remote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_atana" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_cf_part">
+          <Key>
+            <PropertyRef Name="trm_cf" />
+            <PropertyRef Name="vin_cf" />
+            <PropertyRef Name="part_no_cf" />
+          </Key>
+          <Property Name="id_cf_part" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="supp_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="trm_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="n_pn_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vin_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="part_no_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="s_cf" Type="Int32" />
+          <Property Name="kb_no_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tra_cf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EcssDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_bom" Type="Int32" />
+          <Property Name="dateTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_st" Type="Int32" />
+          <Property Name="s_rw" Type="Int32" />
+          <Property Name="id_st" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_rw" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_s" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_chk" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_st_p375">
+          <Key>
+            <PropertyRef Name="ID_ST_P" />
+          </Key>
+          <Property Name="ID_ST_P" Type="Int32" Nullable="false" />
+          <Property Name="SEQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PN_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PN_N" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DT_CF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DT_FG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_PD" Type="Int32" />
+          <Property Name="S_CF" Type="Int32" />
+          <Property Name="S_S" Type="Int32" />
+          <Property Name="Sequence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Sequence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Label_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_st_part">
+          <Key>
+            <PropertyRef Name="id_st_part" />
+          </Key>
+          <Property Name="id_st_part" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_st" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="trm_st" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="n_pn_st" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_pn_st" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_st" Type="Int32" />
+          <Property Name="s_st_o" Type="Int32" Nullable="false" />
+          <Property Name="date_st_o" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="s_st_rw" Type="Int32" Nullable="false" />
+          <Property Name="id_st_rw" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_st_chk" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Label_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_st_u375">
+          <Key>
+            <PropertyRef Name="ID_ST_U" />
+          </Key>
+          <Property Name="ID_ST_U" Type="Int32" Nullable="false" />
+          <Property Name="SEQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PN_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PN_N" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DT_CF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DT_FG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_PD" Type="Int32" />
+          <Property Name="S_CF" Type="Int32" />
+          <Property Name="S_S" Type="Int32" />
+          <Property Name="Sequence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Sequence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DB_EF" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Log_FORD" EntityType="Self.Log_FORD" />
+          <EntitySet Name="Log_P375" EntityType="Self.Log_P375" />
+          <EntitySet Name="Log_U375" EntityType="Self.Log_U375" />
+          <EntitySet Name="tb_bom_ford1" EntityType="Self.tb_bom_ford1" />
+          <EntitySet Name="tb_bom_t6" EntityType="Self.tb_bom_t6" />
+          <EntitySet Name="tb_bom_u375" EntityType="Self.tb_bom_u375" />
+          <EntitySet Name="tb_cf_part" EntityType="Self.tb_cf_part" />
+          <EntitySet Name="tb_st_p375" EntityType="Self.tb_st_p375" />
+          <EntitySet Name="tb_st_part" EntityType="Self.tb_st_part" />
+          <EntitySet Name="tb_st_u375" EntityType="Self.tb_st_u375" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_ModelStoreContainer" CdmEntityContainer="DB_EF">
+          <EntitySetMapping Name="Log_FORD">
+            <EntityTypeMapping TypeName="DB_Model.Log_FORD">
+              <MappingFragment StoreEntitySet="Log_FORD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kanban" ColumnName="Kanban" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Wire" ColumnName="Wire" />
+                <ScalarProperty Name="Mic" ColumnName="Mic" />
+                <ScalarProperty Name="LampFR1" ColumnName="LampFR1" />
+                <ScalarProperty Name="LampFR2" ColumnName="LampFR2" />
+                <ScalarProperty Name="LampRR" ColumnName="LampRR" />
+                <ScalarProperty Name="Sunvisor_Driver" ColumnName="Sunvisor_Driver" />
+                <ScalarProperty Name="Sunvisor_Passenger" ColumnName="Sunvisor_Passenger" />
+                <ScalarProperty Name="Remote" ColumnName="Remote" />
+                <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log_P375">
+            <EntityTypeMapping TypeName="DB_Model.Log_P375">
+              <MappingFragment StoreEntitySet="Log_P375">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kanban" ColumnName="Kanban" />
+                <ScalarProperty Name="Label_PD" ColumnName="Label_PD" />
+                <ScalarProperty Name="Lamp_OHC" ColumnName="Lamp_OHC" />
+                <ScalarProperty Name="Remote" ColumnName="Remote" />
+                <ScalarProperty Name="Wire" ColumnName="Wire" />
+                <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log_U375">
+            <EntityTypeMapping TypeName="DB_Model.Log_U375">
+              <MappingFragment StoreEntitySet="Log_U375">
+                <ScalarProperty Name="Label_ID" ColumnName="Label_ID" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Kanban" ColumnName="Kanban" />
+                <ScalarProperty Name="OHC" ColumnName="OHC" />
+                <ScalarProperty Name="Map_Lamp" ColumnName="Map_Lamp" />
+                <ScalarProperty Name="Dome_Lamp" ColumnName="Dome_Lamp" />
+                <ScalarProperty Name="Wire" ColumnName="Wire" />
+                <ScalarProperty Name="Antenna" ColumnName="Antenna" />
+                <ScalarProperty Name="Remote" ColumnName="Remote" />
+                <ScalarProperty Name="C_date" ColumnName="_date" />
+                <ScalarProperty Name="C_shift" ColumnName="_shift" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_bom_ford1">
+            <EntityTypeMapping TypeName="DB_Model.tb_bom_ford1">
+              <MappingFragment StoreEntitySet="tb_bom_ford1">
+                <ScalarProperty Name="bom_id" ColumnName="bom_id" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Wire" ColumnName="Wire" />
+                <ScalarProperty Name="Mic" ColumnName="Mic" />
+                <ScalarProperty Name="LAMPFR1" ColumnName="LAMPFR1" />
+                <ScalarProperty Name="LAMPFR2" ColumnName="LAMPFR2" />
+                <ScalarProperty Name="LAMPRR" ColumnName="LAMPRR" />
+                <ScalarProperty Name="svr_driver" ColumnName="svr_driver" />
+                <ScalarProperty Name="svr_passenger" ColumnName="svr_passenger" />
+                <ScalarProperty Name="Remote_code" ColumnName="Remote_code" />
+                <ScalarProperty Name="Last_Update" ColumnName="Last_Update" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_bom_t6">
+            <EntityTypeMapping TypeName="DB_Model.tb_bom_t6">
+              <MappingFragment StoreEntitySet="tb_bom_t6">
+                <ScalarProperty Name="part_id" ColumnName="part_id" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="LAMP_OHC" ColumnName="LAMP_OHC" />
+                <ScalarProperty Name="Remote" ColumnName="Remote" />
+                <ScalarProperty Name="Wire" ColumnName="Wire" />
+                <ScalarProperty Name="LAMP_OHC_2" ColumnName="LAMP_OHC_2" />
+                <ScalarProperty Name="LAMP_OHC_3" ColumnName="LAMP_OHC_3" />
+                <ScalarProperty Name="Last_UPDATE" ColumnName="Last_UPDATE" />
+                <ScalarProperty Name="s_alert" ColumnName="s_alert" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="s_mod" ColumnName="s_mod" />
+                <ScalarProperty Name="s_wire" ColumnName="s_wire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_bom_u375">
+            <EntityTypeMapping TypeName="DB_Model.tb_bom_u375">
+              <MappingFragment StoreEntitySet="tb_bom_u375">
+                <ScalarProperty Name="bom_id" ColumnName="bom_id" />
+                <ScalarProperty Name="u_ohc" ColumnName="u_ohc" />
+                <ScalarProperty Name="u_map_lamp" ColumnName="u_map_lamp" />
+                <ScalarProperty Name="u_dome_lamp" ColumnName="u_dome_lamp" />
+                <ScalarProperty Name="u_wire" ColumnName="u_wire" />
+                <ScalarProperty Name="u_remote" ColumnName="u_remote" />
+                <ScalarProperty Name="u_atana" ColumnName="u_atana" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_cf_part">
+            <EntityTypeMapping TypeName="DB_Model.tb_cf_part">
+              <MappingFragment StoreEntitySet="tb_cf_part">
+                <ScalarProperty Name="id_cf_part" ColumnName="id_cf_part" />
+                <ScalarProperty Name="date_cf" ColumnName="date_cf" />
+                <ScalarProperty Name="supp_cf" ColumnName="supp_cf" />
+                <ScalarProperty Name="trm_cf" ColumnName="trm_cf" />
+                <ScalarProperty Name="n_pn_cf" ColumnName="n_pn_cf" />
+                <ScalarProperty Name="vin_cf" ColumnName="vin_cf" />
+                <ScalarProperty Name="part_no_cf" ColumnName="part_no_cf" />
+                <ScalarProperty Name="s_cf" ColumnName="s_cf" />
+                <ScalarProperty Name="kb_no_cf" ColumnName="kb_no_cf" />
+                <ScalarProperty Name="tra_cf" ColumnName="tra_cf" />
+                <ScalarProperty Name="EcssDate" ColumnName="EcssDate" />
+                <ScalarProperty Name="s_bom" ColumnName="s_bom" />
+                <ScalarProperty Name="dateTrans" ColumnName="dateTrans" />
+                <ScalarProperty Name="s_st" ColumnName="s_st" />
+                <ScalarProperty Name="s_rw" ColumnName="s_rw" />
+                <ScalarProperty Name="id_st" ColumnName="id_st" />
+                <ScalarProperty Name="id_rw" ColumnName="id_rw" />
+                <ScalarProperty Name="date_s" ColumnName="date_s" />
+                <ScalarProperty Name="s_chk" ColumnName="s_chk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_st_p375">
+            <EntityTypeMapping TypeName="DB_Model.tb_st_p375">
+              <MappingFragment StoreEntitySet="tb_st_p375">
+                <ScalarProperty Name="ID_ST_P" ColumnName="ID_ST_P" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="PN_F" ColumnName="PN_F" />
+                <ScalarProperty Name="PN_N" ColumnName="PN_N" />
+                <ScalarProperty Name="DT_CF" ColumnName="DT_CF" />
+                <ScalarProperty Name="DT_FG" ColumnName="DT_FG" />
+                <ScalarProperty Name="S_PD" ColumnName="S_PD" />
+                <ScalarProperty Name="S_CF" ColumnName="S_CF" />
+                <ScalarProperty Name="S_S" ColumnName="S_S" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Date_Sequence" ColumnName="Date_Sequence" />
+                <ScalarProperty Name="Label_ID" ColumnName="Label_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_st_part">
+            <EntityTypeMapping TypeName="DB_Model.tb_st_part">
+              <MappingFragment StoreEntitySet="tb_st_part">
+                <ScalarProperty Name="id_st_part" ColumnName="id_st_part" />
+                <ScalarProperty Name="date_st" ColumnName="date_st" />
+                <ScalarProperty Name="trm_st" ColumnName="trm_st" />
+                <ScalarProperty Name="n_pn_st" ColumnName="n_pn_st" />
+                <ScalarProperty Name="f_pn_st" ColumnName="f_pn_st" />
+                <ScalarProperty Name="s_st" ColumnName="s_st" />
+                <ScalarProperty Name="s_st_o" ColumnName="s_st_o" />
+                <ScalarProperty Name="date_st_o" ColumnName="date_st_o" />
+                <ScalarProperty Name="s_st_rw" ColumnName="s_st_rw" />
+                <ScalarProperty Name="id_st_rw" ColumnName="id_st_rw" />
+                <ScalarProperty Name="s_st_chk" ColumnName="s_st_chk" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Label_ID" ColumnName="Label_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_st_u375">
+            <EntityTypeMapping TypeName="DB_Model.tb_st_u375">
+              <MappingFragment StoreEntitySet="tb_st_u375">
+                <ScalarProperty Name="ID_ST_U" ColumnName="ID_ST_U" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="PN_F" ColumnName="PN_F" />
+                <ScalarProperty Name="PN_N" ColumnName="PN_N" />
+                <ScalarProperty Name="DT_CF" ColumnName="DT_CF" />
+                <ScalarProperty Name="DT_FG" ColumnName="DT_FG" />
+                <ScalarProperty Name="S_PD" ColumnName="S_PD" />
+                <ScalarProperty Name="S_CF" ColumnName="S_CF" />
+                <ScalarProperty Name="S_S" ColumnName="S_S" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Date_Sequence" ColumnName="Date_Sequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
