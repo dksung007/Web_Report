@@ -1,69 +1,19 @@
 ﻿@model IEnumerable<WebApp.WebReference.tb_bom_u375>
-
+@using GridMvc.Html
 @{
     ViewBag.Title = "BOM";
 }
 
 <h2>BOM</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.bom_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.u_ohc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.u_map_lamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.u_dome_lamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.u_wire)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.u_remote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.u_atana)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.bom_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.u_ohc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.u_map_lamp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.u_dome_lamp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.u_wire)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.u_remote)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.u_atana)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
+<div>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(c => c.bom_id).Titled("BOM ID");
+    col.Add(c => c.u_ohc).Titled("OHC");
+    col.Add(c => c.u_map_lamp).Titled("Map Lamp");
+    col.Add(c => c.u_dome_lamp).Titled("Dome Lamp");
+    col.Add(c => c.u_remote).Titled("Remote");
+    col.Add(c => c.u_wire).Titled("Wire");
+}).WithPaging(10).Sortable(false);
+</div>
