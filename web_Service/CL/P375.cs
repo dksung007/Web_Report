@@ -15,6 +15,29 @@ namespace web_Service.CL
             return ds;
         }
 
-       
+       public List<tb_bom_t6> find_bom(string id)
+        {
+            var ds = (from c in db.tb_bom_t6 where c.part_id.Contains(id) orderby c.part_id select c).ToList();
+            return ds;
+        }
+
+        public List<tb_st_p375> Stock(string _date)
+        {
+            var ds = (from c in db.tb_st_p375 where c.DT_CF.Contains(_date) select c).ToList();
+            return ds;
+
+        }
+
+        public List<tb_st_p375> find_stock(string id)
+        {
+            var ds = (from c in db.tb_st_p375 where c.SEQ.Contains(id) orderby c.ID_ST_P select c).ToList();
+            return ds;
+        }
+
+        public List<tb_st_p375> Stock_FG(string _date)
+        {
+            var ds = (from c in db.tb_st_p375 where c.DT_CF.Contains(_date) && c.S_PD == 1 orderby c.ID_ST_P select c).ToList();
+            return ds;
+        }
     }
 }
