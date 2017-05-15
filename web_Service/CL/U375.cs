@@ -53,6 +53,15 @@ namespace web_Service.CL
             return ds;
         }
 
+        public int finish_good()
+        {
+            string _date = DateTime.Now.ToString("dd/MM/yyyy");
+            int ds = (from c in db.tb_st_u375
+                      where c.DT_FG.Contains(_date)
+                        && c.S_PD == 1
+                      select c).Count();
+            return ds;
+        }
 
     }
 }

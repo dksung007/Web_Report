@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AAT_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Part_List">
+          <Key>
+            <PropertyRef Name="A_PN" />
+          </Key>
+          <Property Name="id_part" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="A_PN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="N_PN" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="s_mic" Type="int" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="EcssDate" />
+            <PropertyRef Name="TrmRotation" />
+            <PropertyRef Name="VIN" />
+          </Key>
+          <Property Name="DateRecv" Type="nvarchar" MaxLength="50" />
+          <Property Name="Header" Type="nvarchar" MaxLength="50" />
+          <Property Name="Suppliers" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="EcssDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrmRotation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PntName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InitColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="IpColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Base" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Footer1" Type="nvarchar" MaxLength="50" />
+          <Property Name="bcPrint" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="RackNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="AAT_ModelStoreContainer">
+          <EntitySet Name="Part_List" EntityType="Self.Part_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AAT_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Part_List">
+          <Key>
+            <PropertyRef Name="A_PN" />
+          </Key>
+          <Property Name="id_part" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="A_PN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="N_PN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="s_mic" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="EcssDate" />
+            <PropertyRef Name="TrmRotation" />
+            <PropertyRef Name="VIN" />
+          </Key>
+          <Property Name="DateRecv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Suppliers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EcssDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrmRotation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PntName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InitColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Base" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Footer1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bcPrint" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RackNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="AAT_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Part_List" EntityType="Self.Part_List" />
+          <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AAT_ModelStoreContainer" CdmEntityContainer="AAT_Entities">
+          <EntitySetMapping Name="Part_List">
+            <EntityTypeMapping TypeName="AAT_Model.Part_List">
+              <MappingFragment StoreEntitySet="Part_List">
+                <ScalarProperty Name="id_part" ColumnName="id_part" />
+                <ScalarProperty Name="A_PN" ColumnName="A_PN" />
+                <ScalarProperty Name="N_PN" ColumnName="N_PN" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="s_mic" ColumnName="s_mic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrders">
+            <EntityTypeMapping TypeName="AAT_Model.tblOrder">
+              <MappingFragment StoreEntitySet="tblOrder">
+                <ScalarProperty Name="DateRecv" ColumnName="DateRecv" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Suppliers" ColumnName="Suppliers" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="EcssDate" ColumnName="EcssDate" />
+                <ScalarProperty Name="TrmRotation" ColumnName="TrmRotation" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="PntName" ColumnName="PntName" />
+                <ScalarProperty Name="InitColor" ColumnName="InitColor" />
+                <ScalarProperty Name="IpColor" ColumnName="IpColor" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Footer1" ColumnName="Footer1" />
+                <ScalarProperty Name="bcPrint" ColumnName="bcPrint" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="RackNo" ColumnName="RackNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

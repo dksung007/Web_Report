@@ -6,6 +6,30 @@
 
 <h2>BOM</h2>
 
+<div class="container">
+    <div class="row">
+        <div class='col-sm-3'>
+            @using (Html.BeginForm("Find" ,"U375", FormMethod.Get))
+            {
+                <div class="input-group">
+                    @Html.TextBox("id", null, new { @class = "form-control" })
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>                   
+                </div>
+            }
+        </div>
+        <div class='col-sm-3'>
+            @using (Html.BeginForm("BOM", "U375", FormMethod.Get))
+            {
+                <button type="submit" class="btn btn-danger">Clear</button>
+            }
+        </div>
+    </div>
+</div>
+
 <div>
     @Html.Grid(Model).Columns(col =>
 {

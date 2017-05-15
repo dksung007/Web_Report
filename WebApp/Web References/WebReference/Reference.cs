@@ -39,6 +39,16 @@ namespace WebApp.WebReference {
         
         private System.Threading.SendOrPostCallback U375_stock_FGOperationCompleted;
         
+        private System.Threading.SendOrPostCallback U375_Finish_goodOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback P375_Finish_goodOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FORD_Finish_goodOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FORD_show_orderOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AAT_show_orderOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +101,21 @@ namespace WebApp.WebReference {
         
         /// <remarks/>
         public event U375_stock_FGCompletedEventHandler U375_stock_FGCompleted;
+        
+        /// <remarks/>
+        public event U375_Finish_goodCompletedEventHandler U375_Finish_goodCompleted;
+        
+        /// <remarks/>
+        public event P375_Finish_goodCompletedEventHandler P375_Finish_goodCompleted;
+        
+        /// <remarks/>
+        public event FORD_Finish_goodCompletedEventHandler FORD_Finish_goodCompleted;
+        
+        /// <remarks/>
+        public event FORD_show_orderCompletedEventHandler FORD_show_orderCompleted;
+        
+        /// <remarks/>
+        public event AAT_show_orderCompletedEventHandler AAT_show_orderCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -234,6 +259,145 @@ namespace WebApp.WebReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/U375_Finish_good", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int U375_Finish_good() {
+            object[] results = this.Invoke("U375_Finish_good", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void U375_Finish_goodAsync() {
+            this.U375_Finish_goodAsync(null);
+        }
+        
+        /// <remarks/>
+        public void U375_Finish_goodAsync(object userState) {
+            if ((this.U375_Finish_goodOperationCompleted == null)) {
+                this.U375_Finish_goodOperationCompleted = new System.Threading.SendOrPostCallback(this.OnU375_Finish_goodOperationCompleted);
+            }
+            this.InvokeAsync("U375_Finish_good", new object[0], this.U375_Finish_goodOperationCompleted, userState);
+        }
+        
+        private void OnU375_Finish_goodOperationCompleted(object arg) {
+            if ((this.U375_Finish_goodCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.U375_Finish_goodCompleted(this, new U375_Finish_goodCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/P375_Finish_good", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int P375_Finish_good() {
+            object[] results = this.Invoke("P375_Finish_good", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void P375_Finish_goodAsync() {
+            this.P375_Finish_goodAsync(null);
+        }
+        
+        /// <remarks/>
+        public void P375_Finish_goodAsync(object userState) {
+            if ((this.P375_Finish_goodOperationCompleted == null)) {
+                this.P375_Finish_goodOperationCompleted = new System.Threading.SendOrPostCallback(this.OnP375_Finish_goodOperationCompleted);
+            }
+            this.InvokeAsync("P375_Finish_good", new object[0], this.P375_Finish_goodOperationCompleted, userState);
+        }
+        
+        private void OnP375_Finish_goodOperationCompleted(object arg) {
+            if ((this.P375_Finish_goodCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.P375_Finish_goodCompleted(this, new P375_Finish_goodCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FORD_Finish_good", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int FORD_Finish_good() {
+            object[] results = this.Invoke("FORD_Finish_good", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FORD_Finish_goodAsync() {
+            this.FORD_Finish_goodAsync(null);
+        }
+        
+        /// <remarks/>
+        public void FORD_Finish_goodAsync(object userState) {
+            if ((this.FORD_Finish_goodOperationCompleted == null)) {
+                this.FORD_Finish_goodOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFORD_Finish_goodOperationCompleted);
+            }
+            this.InvokeAsync("FORD_Finish_good", new object[0], this.FORD_Finish_goodOperationCompleted, userState);
+        }
+        
+        private void OnFORD_Finish_goodOperationCompleted(object arg) {
+            if ((this.FORD_Finish_goodCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FORD_Finish_goodCompleted(this, new FORD_Finish_goodCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FORD_show_order", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public CL_FORD_Order[] FORD_show_order(string _date) {
+            object[] results = this.Invoke("FORD_show_order", new object[] {
+                        _date});
+            return ((CL_FORD_Order[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FORD_show_orderAsync(string _date) {
+            this.FORD_show_orderAsync(_date, null);
+        }
+        
+        /// <remarks/>
+        public void FORD_show_orderAsync(string _date, object userState) {
+            if ((this.FORD_show_orderOperationCompleted == null)) {
+                this.FORD_show_orderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFORD_show_orderOperationCompleted);
+            }
+            this.InvokeAsync("FORD_show_order", new object[] {
+                        _date}, this.FORD_show_orderOperationCompleted, userState);
+        }
+        
+        private void OnFORD_show_orderOperationCompleted(object arg) {
+            if ((this.FORD_show_orderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FORD_show_orderCompleted(this, new FORD_show_orderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AAT_show_order", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public CL_AAT_Order[] AAT_show_order(string _date) {
+            object[] results = this.Invoke("AAT_show_order", new object[] {
+                        _date});
+            return ((CL_AAT_Order[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AAT_show_orderAsync(string _date) {
+            this.AAT_show_orderAsync(_date, null);
+        }
+        
+        /// <remarks/>
+        public void AAT_show_orderAsync(string _date, object userState) {
+            if ((this.AAT_show_orderOperationCompleted == null)) {
+                this.AAT_show_orderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAAT_show_orderOperationCompleted);
+            }
+            this.InvokeAsync("AAT_show_order", new object[] {
+                        _date}, this.AAT_show_orderOperationCompleted, userState);
+        }
+        
+        private void OnAAT_show_orderOperationCompleted(object arg) {
+            if ((this.AAT_show_orderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AAT_show_orderCompleted(this, new AAT_show_orderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -341,6 +505,362 @@ namespace WebApp.WebReference {
             }
             set {
                 this.u_atanaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2046.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CL_AAT_Order {
+        
+        private string pLANTField;
+        
+        private string sUPPLField;
+        
+        private string lINEField;
+        
+        private string sCH_OFFField;
+        
+        private string tRIM_ONField;
+        
+        private string nHKA_CODEField;
+        
+        private string pART_NUMBERField;
+        
+        private string pAINTField;
+        
+        private string iNTERIORField;
+        
+        private string bRANDField;
+        
+        private string bASEField;
+        
+        private string vIN_NUMBERField;
+        
+        private string dATE_TIMEField;
+        
+        private System.Nullable<int> sTATUSField;
+        
+        /// <remarks/>
+        public string PLANT {
+            get {
+                return this.pLANTField;
+            }
+            set {
+                this.pLANTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SUPPL {
+            get {
+                return this.sUPPLField;
+            }
+            set {
+                this.sUPPLField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LINE {
+            get {
+                return this.lINEField;
+            }
+            set {
+                this.lINEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SCH_OFF {
+            get {
+                return this.sCH_OFFField;
+            }
+            set {
+                this.sCH_OFFField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TRIM_ON {
+            get {
+                return this.tRIM_ONField;
+            }
+            set {
+                this.tRIM_ONField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NHKA_CODE {
+            get {
+                return this.nHKA_CODEField;
+            }
+            set {
+                this.nHKA_CODEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PART_NUMBER {
+            get {
+                return this.pART_NUMBERField;
+            }
+            set {
+                this.pART_NUMBERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PAINT {
+            get {
+                return this.pAINTField;
+            }
+            set {
+                this.pAINTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string INTERIOR {
+            get {
+                return this.iNTERIORField;
+            }
+            set {
+                this.iNTERIORField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BRAND {
+            get {
+                return this.bRANDField;
+            }
+            set {
+                this.bRANDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BASE {
+            get {
+                return this.bASEField;
+            }
+            set {
+                this.bASEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VIN_NUMBER {
+            get {
+                return this.vIN_NUMBERField;
+            }
+            set {
+                this.vIN_NUMBERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DATE_TIME {
+            get {
+                return this.dATE_TIMEField;
+            }
+            set {
+                this.dATE_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> STATUS {
+            get {
+                return this.sTATUSField;
+            }
+            set {
+                this.sTATUSField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2046.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CL_FORD_Order {
+        
+        private string pLANTField;
+        
+        private string sUPPLField;
+        
+        private string lINEField;
+        
+        private string sCH_OFFField;
+        
+        private string tRIM_ONField;
+        
+        private string nHKA_CODEField;
+        
+        private string pART_NUMBERField;
+        
+        private string pAINTField;
+        
+        private string iNTERIORField;
+        
+        private string bRANDField;
+        
+        private string bASEField;
+        
+        private string vIN_NUMBERField;
+        
+        private string dATE_TIMEField;
+        
+        private System.Nullable<int> sTATUSField;
+        
+        /// <remarks/>
+        public string PLANT {
+            get {
+                return this.pLANTField;
+            }
+            set {
+                this.pLANTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SUPPL {
+            get {
+                return this.sUPPLField;
+            }
+            set {
+                this.sUPPLField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LINE {
+            get {
+                return this.lINEField;
+            }
+            set {
+                this.lINEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SCH_OFF {
+            get {
+                return this.sCH_OFFField;
+            }
+            set {
+                this.sCH_OFFField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TRIM_ON {
+            get {
+                return this.tRIM_ONField;
+            }
+            set {
+                this.tRIM_ONField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NHKA_CODE {
+            get {
+                return this.nHKA_CODEField;
+            }
+            set {
+                this.nHKA_CODEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PART_NUMBER {
+            get {
+                return this.pART_NUMBERField;
+            }
+            set {
+                this.pART_NUMBERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PAINT {
+            get {
+                return this.pAINTField;
+            }
+            set {
+                this.pAINTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string INTERIOR {
+            get {
+                return this.iNTERIORField;
+            }
+            set {
+                this.iNTERIORField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BRAND {
+            get {
+                return this.bRANDField;
+            }
+            set {
+                this.bRANDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BASE {
+            get {
+                return this.bASEField;
+            }
+            set {
+                this.bASEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VIN_NUMBER {
+            get {
+                return this.vIN_NUMBERField;
+            }
+            set {
+                this.vIN_NUMBERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DATE_TIME {
+            get {
+                return this.dATE_TIMEField;
+            }
+            set {
+                this.dATE_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> STATUS {
+            get {
+                return this.sTATUSField;
+            }
+            set {
+                this.sTATUSField = value;
             }
         }
     }
@@ -615,6 +1135,136 @@ namespace WebApp.WebReference {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((tb_st_u375[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void U375_Finish_goodCompletedEventHandler(object sender, U375_Finish_goodCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class U375_Finish_goodCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal U375_Finish_goodCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void P375_Finish_goodCompletedEventHandler(object sender, P375_Finish_goodCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class P375_Finish_goodCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal P375_Finish_goodCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void FORD_Finish_goodCompletedEventHandler(object sender, FORD_Finish_goodCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FORD_Finish_goodCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FORD_Finish_goodCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void FORD_show_orderCompletedEventHandler(object sender, FORD_show_orderCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FORD_show_orderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FORD_show_orderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public CL_FORD_Order[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((CL_FORD_Order[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void AAT_show_orderCompletedEventHandler(object sender, AAT_show_orderCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AAT_show_orderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AAT_show_orderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public CL_AAT_Order[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((CL_AAT_Order[])(this.results[0]));
             }
         }
     }

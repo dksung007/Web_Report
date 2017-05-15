@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FORD_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblFordTrans">
+          <Key>
+            <PropertyRef Name="EcssDate" />
+            <PropertyRef Name="TrmRotation" />
+            <PropertyRef Name="PartNo" />
+          </Key>
+          <Property Name="DateRecv" Type="nvarchar" MaxLength="50" />
+          <Property Name="Header" Type="nvarchar" MaxLength="50" />
+          <Property Name="Suppliers" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="EcssDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrmRotation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="PntName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InitColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="IpColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Base" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Footer1" Type="nvarchar" MaxLength="50" />
+          <Property Name="bcPrint" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPart">
+          <Key>
+            <PropertyRef Name="F_PN" />
+          </Key>
+          <Property Name="F_PN" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="N_PN" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRackLbl">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="RackID" Type="nvarchar" MaxLength="4" />
+          <Property Name="Lowest" Type="nvarchar" MaxLength="4" />
+          <Property Name="Highest" Type="nvarchar" MaxLength="4" />
+          <Property Name="No" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FORD_ModelStoreContainer">
+          <EntitySet Name="tblFordTrans" EntityType="Self.tblFordTrans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPart" EntityType="Self.tblPart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRackLbl" EntityType="Self.tblRackLbl" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FORD_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblFordTran">
+          <Key>
+            <PropertyRef Name="EcssDate" />
+            <PropertyRef Name="TrmRotation" />
+            <PropertyRef Name="PartNo" />
+          </Key>
+          <Property Name="DateRecv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Suppliers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EcssDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrmRotation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PntName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InitColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Base" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Footer1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bcPrint" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPart">
+          <Key>
+            <PropertyRef Name="F_PN" />
+          </Key>
+          <Property Name="F_PN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="N_PN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRackLbl">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="RackID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Lowest" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Highest" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FORD_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblFordTrans" EntityType="Self.tblFordTran" />
+          <EntitySet Name="tblParts" EntityType="Self.tblPart" />
+          <EntitySet Name="tblRackLbls" EntityType="Self.tblRackLbl" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FORD_ModelStoreContainer" CdmEntityContainer="FORD_Entities">
+          <EntitySetMapping Name="tblFordTrans">
+            <EntityTypeMapping TypeName="FORD_Model.tblFordTran">
+              <MappingFragment StoreEntitySet="tblFordTrans">
+                <ScalarProperty Name="DateRecv" ColumnName="DateRecv" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Suppliers" ColumnName="Suppliers" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="EcssDate" ColumnName="EcssDate" />
+                <ScalarProperty Name="TrmRotation" ColumnName="TrmRotation" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="PntName" ColumnName="PntName" />
+                <ScalarProperty Name="InitColor" ColumnName="InitColor" />
+                <ScalarProperty Name="IpColor" ColumnName="IpColor" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Footer1" ColumnName="Footer1" />
+                <ScalarProperty Name="bcPrint" ColumnName="bcPrint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblParts">
+            <EntityTypeMapping TypeName="FORD_Model.tblPart">
+              <MappingFragment StoreEntitySet="tblPart">
+                <ScalarProperty Name="F_PN" ColumnName="F_PN" />
+                <ScalarProperty Name="N_PN" ColumnName="N_PN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRackLbls">
+            <EntityTypeMapping TypeName="FORD_Model.tblRackLbl">
+              <MappingFragment StoreEntitySet="tblRackLbl">
+                <ScalarProperty Name="RackID" ColumnName="RackID" />
+                <ScalarProperty Name="Lowest" ColumnName="Lowest" />
+                <ScalarProperty Name="Highest" ColumnName="Highest" />
+                <ScalarProperty Name="No" ColumnName="No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<WebApp.WebReference.CL_FORD_Order>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "ORDER";
+}
+
+<h2>ORDER</h2>
+
+<p>
+    Resul : @Model.Count() Items
+</p>
+<div>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(c => c.PLANT);
+    col.Add(c => c.SUPPL);
+    col.Add(c => c.LINE);
+    col.Add(c => c.TRIM_ON);
+    col.Add(c => c.NHKA_CODE);
+    col.Add(c => c.PART_NUMBER);
+    col.Add(c => c.VIN_NUMBER);
+    col.Add(c => c.STATUS);
+}).WithPaging(10).Sortable(false);
+</div>

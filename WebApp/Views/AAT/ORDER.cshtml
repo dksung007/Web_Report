@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApp.WebReference.CL_AAT_Order>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "ORDER";
+}
+
+<h2> Result : @Model.Count() Items</h2>
+
+@*<div class="container">
+    <div class="row">
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <a href="@Url.Action("ExportToExcel")" class="btn btn-primary">Export</a>
+        </div>
+    </div> 
+</div>*@
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <input type='text' class="form-control" id='datetimepicker1' />
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(c => c.PLANT);
+    col.Add(c => c.SUPPL);
+    col.Add(c => c.LINE);
+    col.Add(c => c.TRIM_ON);
+    col.Add(c => c.NHKA_CODE);
+    col.Add(c => c.PART_NUMBER);
+    col.Add(c => c.VIN_NUMBER);
+    col.Add(c => c.STATUS);
+}).WithPaging(10).Sortable(false);
+</div>
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+</script>
+

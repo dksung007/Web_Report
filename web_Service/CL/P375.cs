@@ -39,5 +39,16 @@ namespace web_Service.CL
             var ds = (from c in db.tb_st_p375 where c.DT_CF.Contains(_date) && c.S_PD == 1 orderby c.ID_ST_P select c).ToList();
             return ds;
         }
+
+        public int finish_good()
+        {
+            string _date = DateTime.Now.ToString("dd/MM/yyyy");
+            int ds = (from c in db.tb_st_p375
+                      where c.DT_FG.Contains(_date)
+                        && c.S_PD == 1
+                      select c).Count();
+            return ds;
+        }
+
     }
 }

@@ -9,7 +9,7 @@ namespace WebApp.Controllers
 {
     public class U375Controller : Controller
     {
-        private WS db;
+        private WS db = new WS();
         // GET: U375
         public ActionResult Index()
         {
@@ -17,9 +17,15 @@ namespace WebApp.Controllers
         }
 
         public ActionResult BOM()
-        {
-            db = new WS();
+        {            
             return View(db.U375_show_bom().ToList());
         }
+
+        public ActionResult Find(string id)
+        {
+            return View("BOM",db.U375_find_bom(id).ToList());
+        }
+
+        
     }
 }

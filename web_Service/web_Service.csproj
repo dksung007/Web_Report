@@ -76,6 +76,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\AAT.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AAT.edmx</DependentUpon>
+      <LastGenOutput>AAT.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\AAT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AAT.edmx</DependentUpon>
+      <LastGenOutput>AAT.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\FORD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FORD.edmx</DependentUpon>
+      <LastGenOutput>FORD.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\FORD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FORD.edmx</DependentUpon>
+      <LastGenOutput>FORD.cs</LastGenOutput>
+    </Content>
     <Content Include="packages.config" />
     <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -83,6 +103,20 @@
     </EntityDeploy>
     <Content Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\AAT.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AAT.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\AAT.edmx.diagram">
+      <DependentUpon>AAT.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\FORD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FORD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\FORD.edmx.diagram">
+      <DependentUpon>FORD.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Web.Debug.config">
@@ -107,10 +141,43 @@
     <Content Include="WS.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CL\AAT.cs" />
     <Compile Include="CL\FORD.cs" />
     <Compile Include="CL\GM.cs" />
     <Compile Include="CL\P375.cs" />
     <Compile Include="CL\U375.cs" />
+    <Compile Include="DATA\CL_AAT_Order.cs" />
+    <Compile Include="DATA\CL_FORD_Order.cs" />
+    <Compile Include="Model\AAT.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AAT.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AAT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AAT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AAT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AAT.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FORD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FORD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FORD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FORD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FORD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FORD.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Log_FORD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -134,6 +201,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Part_List.cs">
+      <DependentUpon>AAT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblFordTran.cs">
+      <DependentUpon>FORD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblOrder.cs">
+      <DependentUpon>AAT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblPart.cs">
+      <DependentUpon>FORD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblRackLbl.cs">
+      <DependentUpon>FORD.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tb_bom_ford1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
