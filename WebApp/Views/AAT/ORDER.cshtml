@@ -8,9 +8,27 @@
 
 @*<div class="container">
     <div class="row">
-        <div class='col-sm-3'>
+        <div class='col-xs-3'>
+            @using (Html.BeginForm("ORDER", "AAT", FormMethod.Get))
+            {
+                <div class="input-group">
+                    @Html.TextBox("_date", null, new { @class = "form-control datepicker" })
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="row">
+        <div class='col-xs-3'>
             <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
+                <div class='input-group date' id='datepicker'>
                     <input type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
@@ -18,19 +36,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <a href="@Url.Action("ExportToExcel")" class="btn btn-primary">Export</a>
-        </div>
-    </div> 
-</div>*@
-
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <input type='text' class="form-control" id='datetimepicker1' />
-        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('.datepicker').datepicker();
+            });
+        </script>
     </div>
 </div>
+
 
 <div>
     @Html.Grid(Model).Columns(col =>
@@ -43,11 +56,11 @@
     col.Add(c => c.PART_NUMBER);
     col.Add(c => c.VIN_NUMBER);
     col.Add(c => c.STATUS);
-}).WithPaging(10).Sortable(false);
+}).WithPaging(10).Sortable(false)
 </div>
-<script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-</script>
 
+@*<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datepicker();
+    });
+</script>*@

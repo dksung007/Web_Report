@@ -4,12 +4,15 @@
     ViewBag.Title = "BOM";
 }
 
-<h2>BOM</h2>
+<h3>Bill of material Line U375 </h3>
+@*<h4>
+    Result @Model.Count() Items
+</h4>*@
 
 <div class="container">
     <div class="row">
-        <div class='col-sm-3'>
-            @using (Html.BeginForm("Find" ,"U375", FormMethod.Get))
+        <div class='col-xs-3'>
+            @using (Html.BeginForm("Find", "U375", FormMethod.Get))
             {
                 <div class="input-group">
                     @Html.TextBox("id", null, new { @class = "form-control" })
@@ -17,7 +20,7 @@
                         <button type="submit" class="btn btn-default">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
-                    </span>                   
+                    </span>
                 </div>
             }
         </div>
@@ -39,5 +42,5 @@
     col.Add(c => c.u_dome_lamp).Titled("Dome Lamp");
     col.Add(c => c.u_remote).Titled("Remote");
     col.Add(c => c.u_wire).Titled("Wire");
-}).WithPaging(10).Sortable(false);
+}).WithPaging(10).Sortable(false)
 </div>

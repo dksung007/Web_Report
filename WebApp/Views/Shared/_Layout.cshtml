@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/Gridmvc.css")
+    @Scripts.Render("~/Scripts/gridmvc.min.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -46,7 +55,7 @@
                         </ul>
                     </li>
                 </ul>
-               @* @Html.Partial("_LoginPartial")*@
+                @* @Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
@@ -59,12 +68,9 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Content/Gridmvc.css")
-    @Scripts.Render("~/Scripts/gridmvc.min.js")
-    @*@Scripts.Render("~/Scripts/bootstrap-datetimepicker.js")
-    @Scripts.Render("~/Scripts/bootstrap-datetimepicker.min.js")*@
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+
     @RenderSection("scripts", required: false)
 
 </body>

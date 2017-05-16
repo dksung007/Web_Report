@@ -12,11 +12,13 @@ namespace WebApp.Controllers
     {
         private WS db = new WS();
         private List<CL_AAT_Order> _data;
+
         // GET: AAT
         //public ActionResult Index()
         //{
         //    return View();
         //}
+
         [HttpGet]
         public ActionResult ORDER(string _date)
         {

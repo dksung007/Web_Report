@@ -24,8 +24,6 @@ namespace WebApp.Controllers
         public ActionResult Find(string id)
         {
             return View("BOM",db.U375_find_bom(id).ToList());
-        }
-
-        
+        }        
     }
 }
